@@ -4,8 +4,12 @@ from sqlalchemy import text
 
 from db.session import get_session
 
-
 app = FastAPI()
+
+
+@app.get('/test')
+def hello():
+    return {"hello": "world"}
 
 
 @app.get("/test_db")
