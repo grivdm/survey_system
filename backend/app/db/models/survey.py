@@ -1,11 +1,7 @@
 from sqlmodel import Field, SQLModel
-from datetime import datetime
-from typing import Optional
+from .base import BaseModel
 
 
-class Survey(SQLModel, table=True):
-    id: int = Field(default=None, primary_key=True)
+class Survey(BaseModel, table=True):
     title: str
     description: str
-    start_time: Optional[datetime] = None
-    end_time: Optional[datetime] = None

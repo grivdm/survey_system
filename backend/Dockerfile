@@ -1,6 +1,6 @@
 FROM python:3.11.0-alpine
 
-WORKDIR /src/app
+WORKDIR /src
 
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
@@ -15,7 +15,7 @@ RUN set -eux \
     && pip install -r requirements.txt \
     && rm -rf /root/.cache/pip
 
-COPY ./app/ .
+COPY ./app .
 
 EXPOSE 8002
 

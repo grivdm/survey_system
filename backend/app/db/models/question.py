@@ -1,5 +1,7 @@
 import enum
-from sqlmodel import Field, SQLModel
+from sqlmodel import Field
+
+from .base import BaseModel
 
 
 class QuestionType(str, enum.Enum):
@@ -8,8 +10,8 @@ class QuestionType(str, enum.Enum):
     TEXT = "text"
 
 
-class Question(SQLModel, table=True):
-    id: int = Field(default=None, primary_key=True)
-    survey_id: int = Field(foreign_key="survey.id")
+class Question(BaseModel, table=True):
+    survey_id: int = Field(foreign_key="Survey.id")
     text: str
     type: QuestionType
+    duration_min: int

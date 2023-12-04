@@ -1,8 +1,8 @@
 from sqlmodel import Field, SQLModel
+from .base import BaseModel
 
 
-class User(SQLModel, table=True):
-    id: int = Field(default=None, primary_key=True)
+class User(BaseModel, table=True):
     username: str
     email: str
     hashed_password: str

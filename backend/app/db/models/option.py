@@ -1,7 +1,9 @@
-from sqlmodel import Field, SQLModel
+from __future__ import annotations
+from sqlmodel import Field
+
+from .base import BaseModel
 
 
-class Option(SQLModel, table=True):
-    id: int = Field(default=None, primary_key=True)
-    question_id: int = Field(foreign_key="question.id")
+class Option(BaseModel, table=True):
+    question_id: int = Field(foreign_key="Question.id")
     text: str
